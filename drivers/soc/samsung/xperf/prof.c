@@ -309,7 +309,11 @@ static int cpufreq_log_thread(void *data)
 			cl_idx = get_cl_idx(cpu);
 			freq = cpu_cur[cl_idx] * 1000;
 			f_idx = get_f_idx(cl_idx, freq);
+#if IS_ENABLED(CONFIG_SCHED_EMS)
 			power = cls[cl_idx].freqs[f_idx].dyn_power + et_freq_to_spower(cpu, freq);
+#else
+			power = cls[cl_idx].freqs[f_idx].dyn_power;
+#endif
 			cpu_power = util_ratio * power / 100;
 			power_total += cpu_power;
 			ret += snprintf(buf + ret, buf_size - ret, "%d ", cpu_power);
@@ -444,7 +448,11 @@ static int init_cpu_power(void)
 			p = p / 1000000000;
 			cls[cnt].freqs[i].dyn_power = p;	// dynamic power
 
+#if IS_ENABLED(CONFIG_SCHED_EMS)
 			p = et_freq_to_spower(cls[cnt].first_cpu, cls[cnt].freqs[i].freq);
+#else
+			p = cls[cnt].coeff * cls[cnt].freqs[i].freq;
+#endif
 			cls[cnt].freqs[i].sta_power = p;	// static power
 		}
 	}

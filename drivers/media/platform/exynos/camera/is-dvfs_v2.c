@@ -533,7 +533,7 @@ int is_set_dvfs_m2m(struct is_device_ischain *device, int scenario_id)
 
 	/* Others */
 	hpg_qos = is_get_qos_lv(core, IS_DVFS_HPG, scenario_id);
-#if defined(ENABLE_HMP_BOOST)
+#if defined(ENABLE_HMP_BOOST) && IS_ENABLED(CONFIG_SCHED_EMS_TUNE)
 	/* hpg_qos : number of minimum online CPU */
 	if (hpg_qos > 0 && device && (dvfs_ctrl->cur_hpg_qos != hpg_qos)
 		&& !test_bit(IS_ISCHAIN_REPROCESSING, &device->state)) {
