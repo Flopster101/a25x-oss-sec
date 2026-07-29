@@ -231,10 +231,13 @@ void kbase_clk_rate_trace_manager_term(struct kbase_device *kbdev)
 void kbase_clk_rate_trace_manager_gpu_active(struct kbase_device *kbdev)
 {
 	struct kbase_clk_rate_trace_manager *clk_rtm = &kbdev->pm.clk_rtm;
+	struct kbase_clk_rate_trace_op_conf *callbacks;
 	unsigned int i;
 	unsigned long flags;
 
-	if (!clk_rtm->clk_rate_trace_ops)
+	callbacks = get_clk_rate_trace_callbacks(kbdev);
+
+	if (!clk_rtm->clk_rate_trace_ops || !callbacks)
 		return;
 
 	spin_lock_irqsave(&clk_rtm->lock, flags);
@@ -249,7 +252,8 @@ void kbase_clk_rate_trace_manager_gpu_active(struct kbase_device *kbdev)
 			continue;
 
 		kbase_clk_rate_trace_manager_notify_all(clk_rtm, clk_data->index,
-							clk_data->clock_val);
+			callbacks->get_gpu_clk_rate(kbdev,
+				callbacks->enumerate_gpu_clk(kbdev, i)));
 	}
 
 	clk_rtm->gpu_idle = false;
@@ -308,7 +312,9 @@ void kbase_clk_rate_trace_manager_notify_all(struct kbase_clk_rate_trace_manager
 #error "unsigned long division is not supported for this architecture"
 #endif
 
+#if IS_ENABLED(CONFIG_MALI_DEBUG_KERNEL_SYSFS)
 		trace_gpu_frequency(new_rate_khz, clk_index);
+#endif
 	}
 
 	/* Notify the listeners. */

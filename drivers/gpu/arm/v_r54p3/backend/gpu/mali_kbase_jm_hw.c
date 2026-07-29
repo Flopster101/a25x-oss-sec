@@ -39,6 +39,7 @@
 #include <backend/gpu/mali_kbase_irq_internal.h>
 #include <backend/gpu/mali_kbase_jm_internal.h>
 #include <mali_kbase_regs_history_debugfs.h>
+#include <mali_exynos_kbase_entrypoint.h>
 
 static void kbasep_try_reset_gpu_early_locked(struct kbase_device *kbdev);
 static u64 kbasep_apply_limited_core_mask(const struct kbase_device *kbdev, const u64 affinity,
@@ -144,6 +145,8 @@ int kbase_job_hw_submit(struct kbase_device *kbdev, struct kbase_jd_atom *katom,
 	 */
 	cfg = (u32)kctx->as_nr;
 
+	if(!kbase_jd_katom_is_protected(katom))
+	{
 	if (kbase_hw_has_feature(kbdev, BASE_HW_FEATURE_FLUSH_REDUCTION) &&
 	    !(kbdev->serialize_jobs & KBASE_SERIALIZE_RESET))
 		cfg |= JS_CONFIG_ENABLE_FLUSH_REDUCTION;
@@ -174,6 +177,14 @@ int kbase_job_hw_submit(struct kbase_device *kbdev, struct kbase_jd_atom *katom,
 		cfg |= JS_CONFIG_END_FLUSH_CLEAN;
 	else
 		cfg |= JS_CONFIG_END_FLUSH_CLEAN_INVALIDATE;
+	}
+	else
+	{
+		//[00467371][RH] Force cache flush on job chain start/end if katom is protected
+		//[00467371][RH] Valhall JM GPUs have BASE_HW_FEATURE_CLEAN_ONLY_SAFE feature, so DDK set JS_CONFIG_END_FLUSH_CLEAN config
+		cfg |= JS_CONFIG_START_FLUSH_CLEAN_INVALIDATE;		
+		cfg |= JS_CONFIG_END_FLUSH_CLEAN;
+	}
 
 	cfg |= JS_CONFIG_THREAD_PRI(8);
 
@@ -198,6 +209,8 @@ int kbase_job_hw_submit(struct kbase_device *kbdev, struct kbase_jd_atom *katom,
 	 * It's approximate because there might be a job in the HEAD register.
 	 */
 	katom->start_timestamp = ktime_get_raw();
+
+	mali_exynos_update_lastjob_time(katom->slot_nr);
 
 	/* GO ! */
 	dev_dbg(kbdev->dev, "JS: Submitting atom %pK from ctx %pK to js[%d] with head=0x%llx",
@@ -267,6 +280,8 @@ static void kbasep_job_slot_update_head_start_timestamp(struct kbase_device *kbd
 			 * too much of an overestimate
 			 */
 			katom->start_timestamp = end_timestamp;
+
+			mali_exynos_update_lastjob_time(katom->slot_nr);
 		}
 	}
 }
@@ -843,7 +858,9 @@ static void kbase_debug_dump_registers(struct kbase_device *kbdev)
 {
 	unsigned int i;
 
+#if IS_ENABLED(CONFIG_DEBUG_FS)
 	kbase_io_history_dump(kbdev);
+#endif
 
 	dev_err(kbdev->dev, "Register state:");
 	dev_err(kbdev->dev, "  GPU_IRQ_RAWSTAT=0x%08x GPU_STATUS=0x%08x",

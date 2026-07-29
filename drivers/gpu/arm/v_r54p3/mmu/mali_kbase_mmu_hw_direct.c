@@ -338,7 +338,11 @@ void kbase_mmu_hw_configure(struct kbase_device *kbdev, struct kbase_as *as)
 	 */
 	transcfg |= AS_TRANSCFG_R_ALLOCATE_MASK;
 
+#if IS_ENABLED(CONFIG_MALI_EXYNOS_LLC)
+	if (kbdev->system_coherency == COHERENCY_ACE) {
+#else
 	if (kbdev->system_coherency != COHERENCY_NONE) {
+#endif
 		/* Set flag AS_TRANSCFG_PTW_SH_OUTER_SHAREABLE */
 		transcfg = AS_TRANSCFG_PTW_SH_SET(transcfg, AS_TRANSCFG_PTW_SH_OUTER_SHAREABLE);
 	}

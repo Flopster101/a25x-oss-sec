@@ -48,6 +48,8 @@
 #include <mali_kbase_reset_gpu.h>
 #include <linux/v_r54p3/version_compat_defs.h>
 
+#include <mali_exynos_kbase_entrypoint.h>
+
 #if ((KERNEL_VERSION(5, 3, 0) <= LINUX_VERSION_CODE) || \
      (KERNEL_VERSION(5, 0, 0) > LINUX_VERSION_CODE))
 /* Enable workaround for ion for kernels prior to v5.0.0 and from v5.3.0
@@ -1176,6 +1178,9 @@ int kbase_sync_imported_umm(struct kbase_context *kctx, struct kbase_va_region *
 		return ret;
 
 	dma_buf = reg->gpu_alloc->imported.umm.dma_buf;
+
+	if (!mali_exynos_dmabuf_is_cached(dma_buf))
+		return 0;
 
 	switch (sync_fn) {
 	case KBASE_SYNC_TO_DEVICE:

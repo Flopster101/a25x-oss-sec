@@ -38,6 +38,8 @@
 #include <backend/gpu/mali_kbase_pm_defs.h>
 #include <mali_linux_trace.h>
 
+#include <mali_exynos_kbase_entrypoint.h>
+
 #if defined(CONFIG_MALI_DEVFREQ) || defined(CONFIG_MALI_MIDGARD_DVFS) || !MALI_USE_CSF
 /* Shift used for kbasep_pm_metrics_data.time_busy/idle - units of (1 << 8) ns
  * This gives a maximum period between samples of 2^(32+8)/100 ns = slightly
@@ -314,6 +316,9 @@ static void kbase_pm_get_dvfs_utilisation_calc(struct kbase_device *kbdev, ktime
 			(u32)(ktime_to_ns(diff) >> KBASE_PM_TIME_SHIFT);
 	}
 
+	mali_exynos_update_jobslot_util(0, kbdev->pm.backend.metrics.gpu_active,
+			(u32)ktime_to_ns(diff) >> KBASE_PM_TIME_SHIFT);
+
 	kbdev->pm.backend.metrics.time_period_start = now;
 }
 #endif /* MALI_USE_CSF */
@@ -443,6 +448,8 @@ static void kbase_pm_metrics_active_calc(struct kbase_device *kbdev)
 	kbdev->pm.backend.metrics.active_cl_ctx[1] = 0;
 	kbdev->pm.backend.metrics.gpu_active = false;
 
+	mali_exynos_set_jobslot_status(0, false);
+
 	for (js = 0; js < BASE_JM_MAX_NR_SLOTS; js++) {
 		struct kbase_jd_atom *katom = kbase_gpu_inspect(kbdev, js, 0);
 
@@ -465,6 +472,9 @@ static void kbase_pm_metrics_active_calc(struct kbase_device *kbdev)
 				trace_sysgraph(SGR_ACTIVE, 0, js);
 			}
 			kbdev->pm.backend.metrics.gpu_active = true;
+
+			mali_exynos_set_jobslot_status(js, true);
+
 		} else {
 			trace_sysgraph(SGR_INACTIVE, 0, js);
 		}

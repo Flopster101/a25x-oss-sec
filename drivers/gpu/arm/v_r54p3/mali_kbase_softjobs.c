@@ -40,6 +40,7 @@
 #include <linux/kernel.h>
 #include <linux/cache.h>
 #include <linux/v_r54p3/version_compat_defs.h>
+#include <mali_exynos_kbase_entrypoint.h>
 
 #if !MALI_USE_CSF
 
@@ -1658,10 +1659,18 @@ void kbase_finish_soft_job(struct kbase_jd_atom *katom)
 		/* If fence has not yet been signaled, do it now */
 		kbase_sync_fence_out_trigger(katom,
 					     katom->event_code == BASE_JD_EVENT_DONE ? 0 : -EFAULT);
+
+		mali_exynos_update_jobsubmit_time();
+		mali_exynos_amigo_interframe_hw_update_eof();
+
 		break;
 	case BASE_JD_REQ_SOFT_FENCE_WAIT:
 		/* Release katom's reference to fence object */
 		kbase_sync_fence_in_remove(katom);
+
+		mali_exynos_update_firstjob_time();
+		mali_exynos_amigo_interframe_hw_update();
+
 		break;
 #endif /* CONFIG_SYNC_FILE */
 #if IS_ENABLED(CONFIG_MALI_VECTOR_DUMP) || MALI_UNIT_TEST
