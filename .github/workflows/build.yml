@@ -88,14 +88,14 @@ jobs:
           if-no-files-found: error
           path: ${{ steps.artifacts_tk.outputs.tar_bundle_path }}
 
-      - name: Build (SukiSU Ultra)
+      - name: Build (ReSukiSU)
         run: |
           rm -f kernel_build/*.zip kernel_build/*.tar kernel_build/TARs_*.zip log.txt || true
           rm -rf kernel_build/images || true
           mkdir -p kernel_build/images
           ./do_build.sh tsq
 
-      - name: Prepare artifacts (SukiSU Ultra)
+      - name: Prepare artifacts (ReSukiSU)
         id: artifacts_ts
         run: |
           set -e
@@ -129,13 +129,13 @@ jobs:
           echo "tar_bundle_path=$tar_bundle" >> "$GITHUB_OUTPUT"
           echo "tar_bundle_name=$(basename "$tar_bundle")" >> "$GITHUB_OUTPUT"
 
-      - name: Prepare flashable payload (SukiSU Ultra)
+      - name: Prepare flashable payload (ReSukiSU)
         run: |
           rm -rf artifact_payload_ts
           mkdir -p artifact_payload_ts
           unzip -q "${{ steps.artifacts_ts.outputs.zip_path }}" -d artifact_payload_ts
 
-      - name: Upload flashable zip (SukiSU Ultra)
+      - name: Upload flashable zip (ReSukiSU)
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.artifacts_ts.outputs.zip_stem }}
@@ -143,28 +143,28 @@ jobs:
           path: artifact_payload_ts/*
           compression-level: 0
 
-      - name: Upload TAR bundle (SukiSU Ultra)
+      - name: Upload TAR bundle (ReSukiSU)
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.artifacts_ts.outputs.tar_bundle_name }}
           if-no-files-found: error
           path: ${{ steps.artifacts_ts.outputs.tar_bundle_path }}
 
-      - name: Build (MamboSU)
+      - name: Build (XXKSU)
         run: |
           rm -f kernel_build/*.zip kernel_build/*.tar kernel_build/TARs_*.zip log.txt || true
           rm -rf kernel_build/images || true
           mkdir -p kernel_build/images
-          ./do_build.sh tuq
+          ./do_build.sh txq
 
-      - name: Prepare artifacts (MamboSU)
+      - name: Prepare artifacts (XXKSU)
         id: artifacts_tu
         run: |
           set -e
           shopt -s nullglob
 
           short_sha="$(echo "$GITHUB_SHA" | cut -c1-7)"
-          variant_name="MamboSU"
+          variant_name="XXKSU"
 
           zips=(kernel_build/*.zip)
           if [ ${#zips[@]} -ne 1 ]; then
@@ -191,13 +191,13 @@ jobs:
           echo "tar_bundle_path=$tar_bundle" >> "$GITHUB_OUTPUT"
           echo "tar_bundle_name=$(basename "$tar_bundle")" >> "$GITHUB_OUTPUT"
 
-      - name: Prepare flashable payload (MamboSU)
+      - name: Prepare flashable payload (XXKSU)
         run: |
           rm -rf artifact_payload_tu
           mkdir -p artifact_payload_tu
           unzip -q "${{ steps.artifacts_tu.outputs.zip_path }}" -d artifact_payload_tu
 
-      - name: Upload flashable zip (MamboSU)
+      - name: Upload flashable zip (XXKSU)
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.artifacts_tu.outputs.zip_stem }}
@@ -205,7 +205,7 @@ jobs:
           path: artifact_payload_tu/*
           compression-level: 0
 
-      - name: Upload TAR bundle (MamboSU)
+      - name: Upload TAR bundle (XXKSU)
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.artifacts_tu.outputs.tar_bundle_name }}
