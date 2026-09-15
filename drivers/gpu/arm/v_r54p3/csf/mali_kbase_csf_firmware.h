@@ -25,7 +25,7 @@
 #include "device/mali_kbase_device.h"
 #include <csf/mali_kbase_csf_registers.h>
 #include <hw_access/mali_kbase_hw_access_regmap.h>
-#include <uapi/gpu/arm/midgard/gpu/mali_kbase_gpu_regmap.h>
+#include <uapi/gpu/arm/v_r54p3/gpu/mali_kbase_gpu_regmap.h>
 
 /*
  * PAGE_KERNEL_RO was only defined on 32bit ARM in 4.19 in:

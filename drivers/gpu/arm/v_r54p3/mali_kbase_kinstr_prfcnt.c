@@ -23,7 +23,7 @@
 #include "mali_kbase_kinstr_prfcnt.h"
 #include "hwcnt/mali_kbase_hwcnt_virtualizer.h"
 #include "hwcnt/mali_kbase_hwcnt_gpu.h"
-#include <uapi/gpu/arm/midgard/mali_kbase_ioctl.h>
+#include <uapi/gpu/arm/v_r54p3/mali_kbase_ioctl.h>
 #include "mali_malisw.h"
 #include "mali_kbase_debug.h"
 
@@ -36,7 +36,7 @@
 #include <linux/mutex.h>
 #include <linux/poll.h>
 #include <linux/slab.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <linux/workqueue.h>
 
 /* Explicitly include epoll header for old kernels. Not required from 4.16. */

@@ -24,7 +24,7 @@
 #include <csf/mali_kbase_csf_registers.h>
 #include <csf/mali_kbase_csf_firmware.h>
 #include <backend/gpu/mali_kbase_pm_internal.h>
-#include <linux/mali_kbase_debug_coresight_csf.h>
+#include <linux/v_r54p3/mali_kbase_debug_coresight_csf.h>
 #include <debug/backend/mali_kbase_debug_coresight_internal_csf.h>
 
 static const char *coresight_state_to_string(enum kbase_debug_coresight_csf_state state)

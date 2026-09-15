@@ -33,7 +33,7 @@
 #include <backend/gpu/mali_kbase_js_internal.h>
 #include <backend/gpu/mali_kbase_jm_internal.h>
 #else
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <linux/pm_runtime.h>
 #include <mali_kbase_reset_gpu.h>
 #ifdef CONFIG_MALI_ARBITER_SUPPORT

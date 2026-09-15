@@ -22,7 +22,7 @@
 #ifndef _KBASE_MMU_H_
 #define _KBASE_MMU_H_
 
-#include <uapi/gpu/arm/midgard/mali_base_kernel.h>
+#include <uapi/gpu/arm/v_r54p3/mali_base_kernel.h>
 #include <mali_kbase_debug.h>
 
 #define KBASE_MMU_PAGE_ENTRIES 512

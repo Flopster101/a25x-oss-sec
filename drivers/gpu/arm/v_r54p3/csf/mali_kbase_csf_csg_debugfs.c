@@ -27,7 +27,7 @@
 #include "mali_kbase_csf_util.h"
 #include <mali_kbase.h>
 #include <linux/seq_file.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <mali_kbase_reset_gpu.h>
 #include <mali_kbase_config_defaults.h>
 

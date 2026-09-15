@@ -27,7 +27,7 @@
 #ifndef _BASE_HWCONFIG_FEATURES_H_
 #define _BASE_HWCONFIG_FEATURES_H_
 
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 enum base_hw_feature {
 	BASE_HW_FEATURE_FLUSH_REDUCTION,

@@ -27,7 +27,7 @@
 #include <linux/random.h>
 #include <linux/version.h>
 #include <linux/ratelimit.h>
-#include <linux/priority_control_manager.h>
+#include <linux/v_r54p3/priority_control_manager.h>
 #if KERNEL_VERSION(4, 11, 0) <= LINUX_VERSION_CODE
 #include <linux/sched/signal.h>
 #else

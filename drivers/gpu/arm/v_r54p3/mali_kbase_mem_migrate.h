@@ -21,7 +21,7 @@
 #ifndef _KBASE_MEM_MIGRATE_H
 #define _KBASE_MEM_MIGRATE_H
 
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 #include <linux/types.h>
 

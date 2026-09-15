@@ -30,7 +30,7 @@
 #include "mali_kbase_csf_sync.h"
 #include "mali_kbase_csf_util.h"
 #include <linux/export.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 #if IS_ENABLED(CONFIG_SYNC_FILE)
 #include "mali_kbase_fence.h"

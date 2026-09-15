@@ -31,7 +31,7 @@
 #endif
 
 #include <hw_access/mali_kbase_hw_access_regmap.h>
-#include <uapi/gpu/arm/midgard/mali_base_kernel.h>
+#include <uapi/gpu/arm/v_r54p3/mali_base_kernel.h>
 #include <mali_kbase_hw.h>
 #include "mali_kbase_pm.h"
 #include "mali_kbase_defs.h"
@@ -40,7 +40,7 @@
 #include "mali_kbase_reg_track.h"
 #include "mali_kbase_mem_migrate.h"
 
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <linux/sched/mm.h>
 #include <linux/kref.h>
 #include <linux/vmalloc.h>

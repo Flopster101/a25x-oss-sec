@@ -19,7 +19,7 @@
  *
  */
 
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 #include <mali_kbase.h>
 #include <mali_kbase_config_defaults.h>

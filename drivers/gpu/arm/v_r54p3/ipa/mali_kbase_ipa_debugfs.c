@@ -20,7 +20,7 @@
  */
 
 #include <linux/debugfs.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <linux/list.h>
 #include <linux/mutex.h>
 

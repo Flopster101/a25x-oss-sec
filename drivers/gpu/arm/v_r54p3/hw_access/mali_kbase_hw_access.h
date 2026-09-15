@@ -22,7 +22,7 @@
 #ifndef _MALI_KBASE_HW_ACCESS_H_
 #define _MALI_KBASE_HW_ACCESS_H_
 
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 #define KBASE_REGMAP_PERM_READ (1U << 0)
 #define KBASE_REGMAP_PERM_WRITE (1U << 1)

@@ -53,7 +53,7 @@
 #include <mmu/mali_kbase_mmu.h>
 #include <asm/arch_timer.h>
 #include <linux/delay.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <mali_kbase_config_defaults.h>
 #define MALI_MAX_DEFAULT_FIRMWARE_NAME_LEN ((size_t)20)
 

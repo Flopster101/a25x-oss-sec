@@ -24,7 +24,7 @@
 #include <linux/kfifo.h>
 #include <linux/printk.h>
 #include <linux/seq_file.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <linux/vmalloc.h>
 
 #define KBASEP_PRINTER_BUFFER_MAX_SIZE (2 * PAGE_SIZE)

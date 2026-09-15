@@ -36,7 +36,7 @@
 #include <linux/uaccess.h>
 #include <linux/sync_file.h>
 #include <linux/slab.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 static const struct file_operations stream_fops = { .owner = THIS_MODULE };
 

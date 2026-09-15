@@ -49,7 +49,7 @@
 #include "debug/mali_kbase_debug_ktrace_defs.h"
 
 #include <protected_mode_switcher.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 
 #if IS_ENABLED(CONFIG_DEBUG_FS)
@@ -64,7 +64,7 @@
 #include <arbiter/mali_kbase_arbiter_defs.h>
 #endif /* CONFIG_MALI_ARBITER_SUPPORT */
 
-#include <linux/memory_group_manager.h>
+#include <linux/v_r54p3/memory_group_manager.h>
 
 #include <linux/atomic.h>
 #include <linux/mempool.h>

@@ -28,7 +28,7 @@
 #include <tl/mali_kbase_tracepoints.h>
 #include <linux/of.h>
 #include <linux/of_platform.h>
-#include "linux/mali_arbiter_interface.h"
+#include "linux/v_r54p3/mali_arbiter_interface.h"
 
 /* Arbiter interface version against which was implemented this module */
 #define MALI_REQUIRED_KBASE_ARBITER_INTERFACE_VERSION 5

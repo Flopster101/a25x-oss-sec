@@ -25,7 +25,7 @@
 #include "mali_kbase_csf.h"
 #include "backend/gpu/mali_kbase_pm_internal.h"
 #include <linux/export.h>
-#include <linux/priority_control_manager.h>
+#include <linux/v_r54p3/priority_control_manager.h>
 #include <linux/shmem_fs.h>
 #include <csf/mali_kbase_csf_cpu_queue.h>
 #include <csf/mali_kbase_csf_registers.h>
@@ -37,7 +37,7 @@
 #include "mali_kbase_csf_event.h"
 #include <tl/mali_kbase_tracepoints.h>
 #include "mali_kbase_csf_mcu_shared_reg.h"
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 #define CS_REQ_EXCEPTION_MASK (CS_REQ_FAULT_MASK | CS_REQ_FATAL_MASK)
 #define CS_ACK_EXCEPTION_MASK (CS_ACK_FAULT_MASK | CS_ACK_FATAL_MASK)

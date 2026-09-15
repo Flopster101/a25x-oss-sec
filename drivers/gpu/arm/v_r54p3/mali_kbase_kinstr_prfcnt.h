@@ -27,7 +27,7 @@
 #define _KBASE_KINSTR_PRFCNT_H_
 
 #include "hwcnt/mali_kbase_hwcnt_types.h"
-#include <uapi/gpu/arm/midgard/mali_kbase_hwcnt_reader.h>
+#include <uapi/gpu/arm/v_r54p3/mali_kbase_hwcnt_reader.h>
 
 struct kbase_kinstr_prfcnt_context;
 struct kbase_kinstr_prfcnt_client;

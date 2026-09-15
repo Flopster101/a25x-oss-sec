@@ -25,7 +25,7 @@
 #if defined(CONFIG_DEBUG_FS) && !IS_ENABLED(CONFIG_MALI_NO_MALI)
 
 #include <linux/debugfs.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 /**
  * kbase_io_history_resize - resize the register access history buffer.

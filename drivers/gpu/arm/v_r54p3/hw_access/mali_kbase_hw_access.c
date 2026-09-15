@@ -26,7 +26,7 @@
 #include "mali_kbase_hw_access.h"
 #include "mali_kbase_hw_access_regmap.h"
 
-#include <uapi/gpu/arm/midgard/gpu/mali_kbase_gpu_id.h>
+#include <uapi/gpu/arm/v_r54p3/gpu/mali_kbase_gpu_id.h>
 
 #define KBASE_REGMAP_ACCESS_ALWAYS_POWERED (1U << 16)
 

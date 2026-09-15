@@ -38,8 +38,8 @@
 #ifndef _KBASE_MODEL_DUMMY_H_
 #define _KBASE_MODEL_DUMMY_H_
 
-#include <uapi/gpu/arm/midgard/backend/gpu/mali_kbase_model_linux.h>
-#include <uapi/gpu/arm/midgard/backend/gpu/mali_kbase_model_dummy.h>
+#include <uapi/gpu/arm/v_r54p3/backend/gpu/mali_kbase_model_linux.h>
+#include <uapi/gpu/arm/v_r54p3/backend/gpu/mali_kbase_model_dummy.h>
 
 #define model_error_log(module, ...) pr_err(__VA_ARGS__)
 

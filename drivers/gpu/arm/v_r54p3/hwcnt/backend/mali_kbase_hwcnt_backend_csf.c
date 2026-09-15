@@ -30,7 +30,7 @@
 #include <linux/wait.h>
 #include <linux/workqueue.h>
 #include <linux/completion.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 #ifndef BASE_MAX_NR_CLOCKS_REGULATORS
 #define BASE_MAX_NR_CLOCKS_REGULATORS 2

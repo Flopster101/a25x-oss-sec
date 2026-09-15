@@ -33,7 +33,7 @@
 #endif /* CONFIG_DEVFREQ_THERMAL */
 #endif /* CONFIG_MALI_DEVFREQ */
 #include "backend/gpu/mali_kbase_model_linux.h"
-#include "uapi/gpu/arm/midgard/mali_kbase_mem_profile_debugfs_buf_size.h"
+#include "uapi/gpu/arm/v_r54p3/mali_kbase_mem_profile_debugfs_buf_size.h"
 #include "mali_kbase_mem.h"
 #include "mali_kbase_mem_pool_debugfs.h"
 #include "mali_kbase_mem_pool_group.h"
@@ -48,7 +48,7 @@
 #include <mali_kbase_hwaccess_instr.h>
 #endif
 #include <mali_kbase_reset_gpu.h>
-#include <uapi/gpu/arm/midgard/mali_kbase_ioctl.h>
+#include <uapi/gpu/arm/v_r54p3/mali_kbase_ioctl.h>
 #if !MALI_USE_CSF
 #include "mali_kbase_kinstr_jm.h"
 #endif
@@ -97,7 +97,7 @@
 #include <linux/compat.h> /* is_compat_task/in_compat_syscall */
 #include <linux/mman.h>
 #include <linux/version.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <mali_kbase_hw.h>
 #if IS_ENABLED(CONFIG_SYNC_FILE)
 #include <mali_kbase_sync.h>
@@ -106,7 +106,7 @@
 #include <linux/clk-provider.h>
 #include <linux/delay.h>
 #include <linux/log2.h>
-#include <linux/mali_hw_access.h>
+#include <linux/v_r54p3/mali_hw_access.h>
 
 #include <mali_kbase_config.h>
 

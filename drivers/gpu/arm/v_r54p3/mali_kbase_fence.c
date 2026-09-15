@@ -25,7 +25,7 @@
 #include <mali_kbase_fence.h>
 #include <mali_kbase.h>
 
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 
 /* Spin lock protecting all Mali fences as fence->lock. */
 static DEFINE_SPINLOCK(kbase_fence_lock);

@@ -25,7 +25,7 @@
  */
 
 #include "mali_kbase_kinstr_jm.h"
-#include <uapi/gpu/arm/midgard/mali_kbase_kinstr_jm_reader.h>
+#include <uapi/gpu/arm/v_r54p3/mali_kbase_kinstr_jm_reader.h>
 
 #include "mali_kbase.h"
 #include "mali_kbase_linux.h"
@@ -45,7 +45,7 @@
 #include <linux/slab.h>
 #include <linux/spinlock.h>
 #include <linux/version.h>
-#include <linux/version_compat_defs.h>
+#include <linux/v_r54p3/version_compat_defs.h>
 #include <linux/wait.h>
 
 /* Explicitly include epoll header for old kernels. Not required from 4.16. */

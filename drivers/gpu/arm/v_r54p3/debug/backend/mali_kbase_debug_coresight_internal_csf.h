@@ -23,7 +23,7 @@
 #define _KBASE_DEBUG_CORESIGHT_INTERNAL_CSF_H_
 
 #include <mali_kbase.h>
-#include <linux/mali_kbase_debug_coresight_csf.h>
+#include <linux/v_r54p3/mali_kbase_debug_coresight_csf.h>
 
 /**
  * struct kbase_debug_coresight_csf_client - Coresight client definition
