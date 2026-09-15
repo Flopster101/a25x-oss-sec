@@ -279,11 +279,26 @@ int mali_exynos_set_pm_state_resume_end(void)
 
 void mali_exynos_set_jobslot_status(int slot, bool is_active)
 {
-	if (slot == 0)
-	if (slot == 0) {
-		gpex_gts_set_jobslot_status(is_active);
-		gpexbe_utilization_set_gpu_active(is_active);
+	static bool js_active[BASE_JM_MAX_NR_SLOTS];
+	bool any = false;
+	int i;
+
+	if (slot >= 0 && slot < BASE_JM_MAX_NR_SLOTS) {
+		/* kbase clears every slot via (0, false) before rescanning */
+		if (slot == 0 && !is_active) {
+			for (i = 0; i < BASE_JM_MAX_NR_SLOTS; i++)
+				js_active[i] = false;
+		}
+		js_active[slot] = is_active;
 	}
+
+	for (i = 0; i < BASE_JM_MAX_NR_SLOTS; i++)
+		any |= js_active[i];
+
+	if (slot == 0)
+		gpex_gts_set_jobslot_status(is_active);
+
+	gpexbe_utilization_set_gpu_active(any);
 }
 
 void mali_exynos_update_jobslot_util(int slot, bool gpu_active, u32 ns_time)
