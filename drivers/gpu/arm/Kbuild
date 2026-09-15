@@ -29,5 +29,6 @@ mali_kbase-y := mali_kbase_compat.o
 obj-$(CONFIG_MALI_MIDGARD_R32P1) += bv_r32p1/
 obj-$(CONFIG_MALI_MIDGARD_R38P1) += v_r38p1/
 obj-$(CONFIG_MALI_MIDGARD_R44P1) += v_r44p1/
+obj-$(CONFIG_MALI_MIDGARD_R54P3) += v_r54p3/
 
 obj-$(CONFIG_EXYNOS_GPEX) += exynos/
