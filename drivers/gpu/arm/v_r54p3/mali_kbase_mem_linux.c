@@ -91,6 +91,13 @@
  */
 static bool fully_backed_gpf_memory;
 module_param(fully_backed_gpf_memory, bool, 0444);
+
+/* Getter for the compat stub's sysfs proxy. */
+bool kbase_fully_backed_gpf_memory_get(void)
+{
+	return fully_backed_gpf_memory;
+}
+EXPORT_SYMBOL_GPL(kbase_fully_backed_gpf_memory_get);
 MODULE_PARM_DESC(
 	fully_backed_gpf_memory,
 	"Enable the full physical backing of all grow-on-GPU-page-fault allocations in the kernel."

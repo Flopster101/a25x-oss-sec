@@ -130,6 +130,13 @@ static int get_large_page_conf(char *buffer, const struct kernel_param *kp)
 	return scnprintf(buffer, PAGE_SIZE, "%s\n", out);
 }
 
+/* Getter for the compat stub's sysfs proxy. */
+int kbase_large_page_conf_get(char *buffer)
+{
+	return get_large_page_conf(buffer, NULL);
+}
+EXPORT_SYMBOL_GPL(kbase_large_page_conf_get);
+
 static const struct kernel_param_ops large_page_config_params = {
 	.set = set_large_page_conf,
 	.get = get_large_page_conf,
