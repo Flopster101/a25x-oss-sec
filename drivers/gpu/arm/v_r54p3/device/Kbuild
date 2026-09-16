@@ -18,16 +18,16 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     device/mali_kbase_device.o \
     device/mali_kbase_device_hw.o
 
 ifeq ($(CONFIG_MALI_CSF_SUPPORT),y)
-    mali_kbase-y += \
+    mali_kbase_r54p3-y += \
         device/backend/mali_kbase_device_csf.o \
         device/backend/mali_kbase_device_hw_csf.o
 else
-    mali_kbase-y += \
+    mali_kbase_r54p3-y += \
         device/backend/mali_kbase_device_jm.o \
         device/backend/mali_kbase_device_hw_jm.o
 endif

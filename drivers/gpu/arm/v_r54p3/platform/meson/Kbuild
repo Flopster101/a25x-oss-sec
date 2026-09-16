@@ -18,6 +18,6 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     platform/$(MALI_PLATFORM_DIR)/mali_kbase_config_meson.o \
     platform/$(MALI_PLATFORM_DIR)/mali_kbase_runtime_pm.o

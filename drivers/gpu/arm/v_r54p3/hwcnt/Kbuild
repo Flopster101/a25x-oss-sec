@@ -18,7 +18,7 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     hwcnt/mali_kbase_hwcnt.o \
     hwcnt/mali_kbase_hwcnt_gpu.o \
     hwcnt/mali_kbase_hwcnt_types.o \
@@ -26,11 +26,11 @@ mali_kbase-y += \
     hwcnt/mali_kbase_hwcnt_watchdog_if_timer.o
 
 ifeq ($(CONFIG_MALI_CSF_SUPPORT),y)
-    mali_kbase-y += \
+    mali_kbase_r54p3-y += \
         hwcnt/backend/mali_kbase_hwcnt_backend_csf.o \
         hwcnt/backend/mali_kbase_hwcnt_backend_csf_if_fw.o
 else
-    mali_kbase-y += \
+    mali_kbase_r54p3-y += \
         hwcnt/backend/mali_kbase_hwcnt_backend_jm.o \
         hwcnt/backend/mali_kbase_hwcnt_backend_jm_watchdog.o
 endif

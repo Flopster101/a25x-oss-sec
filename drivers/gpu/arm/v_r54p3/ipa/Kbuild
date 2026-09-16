@@ -18,18 +18,18 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     ipa/mali_kbase_ipa_simple.o \
     ipa/mali_kbase_ipa.o
 
-mali_kbase-$(CONFIG_DEBUG_FS) += ipa/mali_kbase_ipa_debugfs.o
+mali_kbase_r54p3-$(CONFIG_DEBUG_FS) += ipa/mali_kbase_ipa_debugfs.o
 
 ifeq ($(MALI_USE_CSF),1)
-    mali_kbase-y += \
+    mali_kbase_r54p3-y += \
         ipa/backend/mali_kbase_ipa_counter_csf.o \
         ipa/backend/mali_kbase_ipa_counter_common_csf.o
 else
-    mali_kbase-y += \
+    mali_kbase_r54p3-y += \
         ipa/backend/mali_kbase_ipa_counter_jm.o \
         ipa/backend/mali_kbase_ipa_counter_common_jm.o
 endif

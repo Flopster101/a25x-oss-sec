@@ -23,6 +23,7 @@
 
 /* Uses */
 #include <mali_kbase.h>
+#include <mali_kbase_hwaccess_pm.h>
 #include <linux/protected_mode_switcher.h>
 #include <debug/mali_kbase_debug_ktrace.h>
 

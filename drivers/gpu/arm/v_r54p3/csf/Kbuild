@@ -18,7 +18,7 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     csf/mali_kbase_csf_util.o \
     csf/mali_kbase_csf_firmware_cfg.o \
     csf/mali_kbase_csf_trace_buffer.o \
@@ -47,12 +47,12 @@ mali_kbase-y += \
     csf/mali_kbase_csf_mcu_shared_reg.o
 
 ifeq ($(CONFIG_MALI_NO_MALI),y)
-mali_kbase-y += csf/mali_kbase_csf_firmware_no_mali.o
+mali_kbase_r54p3-y += csf/mali_kbase_csf_firmware_no_mali.o
 else
-mali_kbase-y += csf/mali_kbase_csf_firmware.o
+mali_kbase_r54p3-y += csf/mali_kbase_csf_firmware.o
 endif
 
-mali_kbase-$(CONFIG_DEBUG_FS) += csf/mali_kbase_debug_csf_fault.o
+mali_kbase_r54p3-$(CONFIG_DEBUG_FS) += csf/mali_kbase_debug_csf_fault.o
 
 ifeq ($(KBUILD_EXTMOD),)
 # in-tree

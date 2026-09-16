@@ -18,7 +18,7 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     tl/mali_kbase_timeline.o \
     tl/mali_kbase_timeline_io.o \
     tl/mali_kbase_tlstream.o \
@@ -26,7 +26,7 @@ mali_kbase-y += \
 
 
 ifeq ($(CONFIG_MALI_CSF_SUPPORT),y)
-    mali_kbase-y += tl/backend/mali_kbase_timeline_csf.o
+    mali_kbase_r54p3-y += tl/backend/mali_kbase_timeline_csf.o
 else
-    mali_kbase-y += tl/backend/mali_kbase_timeline_jm.o
+    mali_kbase_r54p3-y += tl/backend/mali_kbase_timeline_jm.o
 endif

@@ -18,4 +18,4 @@
 #
 #
 
-mali_kbase-y += thirdparty/mali_kbase_mmap.o
+mali_kbase_r54p3-y += thirdparty/mali_kbase_mmap.o

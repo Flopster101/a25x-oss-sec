@@ -18,10 +18,10 @@
 #
 #
 
-mali_kbase-y += gpu/mali_kbase_gpu.o
+mali_kbase_r54p3-y += gpu/mali_kbase_gpu.o
 
 ifeq ($(CONFIG_MALI_CSF_SUPPORT),y)
-    mali_kbase-y += gpu/backend/mali_kbase_gpu_fault_csf.o
+    mali_kbase_r54p3-y += gpu/backend/mali_kbase_gpu_fault_csf.o
 else
-    mali_kbase-y += gpu/backend/mali_kbase_gpu_fault_jm.o
+    mali_kbase_r54p3-y += gpu/backend/mali_kbase_gpu_fault_jm.o
 endif

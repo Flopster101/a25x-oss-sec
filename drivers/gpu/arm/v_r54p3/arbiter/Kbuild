@@ -18,7 +18,7 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     arbiter/mali_kbase_arbif.o \
     arbiter/mali_kbase_arbiter_pm.o
 

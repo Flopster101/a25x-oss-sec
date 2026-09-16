@@ -18,16 +18,16 @@
 #
 #
 
-mali_kbase-y += hw_access/mali_kbase_hw_access.o
+mali_kbase_r54p3-y += hw_access/mali_kbase_hw_access.o
 
 ifeq ($(CONFIG_MALI_CSF_SUPPORT),y)
-    mali_kbase-y += hw_access/regmap/mali_kbase_regmap_csf.o
+    mali_kbase_r54p3-y += hw_access/regmap/mali_kbase_regmap_csf.o
 else
-    mali_kbase-y += hw_access/regmap/mali_kbase_regmap_jm.o
+    mali_kbase_r54p3-y += hw_access/regmap/mali_kbase_regmap_jm.o
 endif
 
 ifeq ($(CONFIG_MALI_REAL_HW), y)
-mali_kbase-y += hw_access/backend/mali_kbase_hw_access_real_hw.o
+mali_kbase_r54p3-y += hw_access/backend/mali_kbase_hw_access_real_hw.o
 else
-mali_kbase-y += hw_access/backend/mali_kbase_hw_access_model_linux.o
+mali_kbase_r54p3-y += hw_access/backend/mali_kbase_hw_access_model_linux.o
 endif

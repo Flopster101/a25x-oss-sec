@@ -18,11 +18,11 @@
 #
 #
 
-mali_kbase-y += debug/mali_kbase_debug_ktrace.o
+mali_kbase_r54p3-y += debug/mali_kbase_debug_ktrace.o
 
 ifeq ($(CONFIG_MALI_CSF_SUPPORT),y)
-    mali_kbase-y += debug/backend/mali_kbase_debug_ktrace_csf.o
-    mali_kbase-$(CONFIG_MALI_CORESIGHT) += debug/backend/mali_kbase_debug_coresight_csf.o
+    mali_kbase_r54p3-y += debug/backend/mali_kbase_debug_ktrace_csf.o
+    mali_kbase_r54p3-$(CONFIG_MALI_CORESIGHT) += debug/backend/mali_kbase_debug_coresight_csf.o
 else
-    mali_kbase-y += debug/backend/mali_kbase_debug_ktrace_jm.o
+    mali_kbase_r54p3-y += debug/backend/mali_kbase_debug_ktrace_jm.o
 endif

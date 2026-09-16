@@ -18,6 +18,6 @@
 #
 #
 
-mali_kbase-y += \
+mali_kbase_r54p3-y += \
     platform/$(MALI_PLATFORM_DIR)/mali_kbase_config_vexpress.o \
     mali_kbase_platform_fake.o
